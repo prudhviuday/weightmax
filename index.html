@@ -278,12 +278,12 @@
       z-index: 3;
       left: -8%;
       right: -8%;
-      top: -30%;
-      height: 110px;
+      top: -2px;
+      height: 3px;
       pointer-events: none;
-      background: linear-gradient(180deg, transparent, #d75a360c 38%, #d75a3622 50%, #d75a360c 62%, transparent);
-      filter: blur(3px);
-      animation: scan 11s linear infinite;
+      background: linear-gradient(90deg, transparent, #ff6d3b55 8%, #ff8a54 28%, #ffd0a5 50%, #ff8a54 72%, #ff6d3b55 92%, transparent);
+      box-shadow: 0 0 9px 2px #ff713f99, 0 0 28px 7px #ff713f55;
+      animation: scan 5.2s cubic-bezier(.45,0,.55,1) infinite;
     }
     .bracket {
       position: absolute;
@@ -492,10 +492,10 @@
     @keyframes radarRotate { to { transform: rotate(360deg); } }
     @keyframes radarRotateReverse { to { transform: rotate(-360deg); } }
     @keyframes scan {
-      0% { transform: translateY(-8%); opacity: 0; }
-      14% { opacity: .8; }
-      80% { opacity: .48; }
-      100% { transform: translateY(700px); opacity: 0; }
+      0% { transform: translateY(0); opacity: 0; }
+      8% { opacity: 1; }
+      88% { opacity: .9; }
+      100% { transform: translateY(620px); opacity: 0; }
     }
 
     @media (max-width: 700px) {
@@ -557,7 +557,7 @@ body{color:#fff0e8;background:radial-gradient(ellipse at 50% 0%,#6b2c1b55,transp
 .radar-ring{border-color:#ff956044}.radar-ring.inner{border-color:#ff95602b}
 .radar-axis{background:linear-gradient(transparent,#ff95602a 22%,#ff956045 50%,#ff95602a 78%,transparent)}
 .radar-axis.horizontal{background:linear-gradient(90deg,transparent,#ff95602a 22%,#ff956045 50%,#ff95602a 78%,transparent)}
-.scanline{background:linear-gradient(180deg,transparent,#ff713f0c 38%,#ff713f27 50%,#ff713f0c 62%,transparent)}
+.scanline{background:linear-gradient(90deg,transparent,#ff6d3b55 8%,#ff8a54 28%,#ffd0a5 50%,#ff8a54 72%,#ff6d3b55 92%,transparent)}
 .bracket{border-color:#ff9560a0}.readout{color:#e7b29a;text-shadow:0 1px 0 #100906}.readout .dim,.corner-mark{color:#bd8872}
 .stage-status,.loading-note{border-color:#a95737;background:#21130ff0;color:#f0b69c;box-shadow:0 5px 22px #0005}
 .stage-status i{background:#ff713f;box-shadow:0 0 0 4px #ff713f25,0 0 13px #ff713f}.stage-status strong{color:#ff9a63}
@@ -612,20 +612,20 @@ body{color:#fff0e8;background:radial-gradient(ellipse at 50% 0%,#6b2c1b55,transp
         <div class="bracket br" aria-hidden="true"></div>
 
         <div class="readout left" aria-hidden="true">
-          UNIT <em>01 / ONLINE</em><br>
-          PERSONALITY: <em>FAVOURITE</em><br>
-          <span class="dim">EMOTION CORE: WAITING</span>
+          CASE FILE <em>001 / OPEN</em><br>
+          SUBJECT: <em>THANGAM</em><br>
+          <span class="dim">KNOWN ALIASES: SWEETY · AMMA</span>
         </div>
         <div class="corner-mark top-right" aria-hidden="true">
-          POWER 100%<br>HOME LINK: PENDING
+          PROFILE MATCH: <em>100%</em><br>THREAT LEVEL: IRRESISTIBLE
         </div>
         <div class="corner-mark bottom-left" aria-hidden="true">
-          EMBER ZONE<br>PLAYER ONE // 01
+          SIGNATURE TRAIT<br>UNFAIRLY ADORABLE
         </div>
         <div class="readout right" aria-hidden="true">
-          <span class="dim">DESTINATION</span><br>
-          <em>BACK TO ME</em><br>
-          STATUS: <em>SOON</em>
+          <span class="dim">KNOWN OFFENCE</span><br>
+          <em>STOLE PAPA’S HEART</em><br>
+          PRIMARY WEAPON: <em>ONE SMILE</em>
         </div>
 
         <div class="scanline" aria-hidden="true"></div>
@@ -639,7 +639,7 @@ body{color:#fff0e8;background:radial-gradient(ellipse at 50% 0%,#6b2c1b55,transp
           reveal="auto"
           auto-rotate
           auto-rotate-delay="0"
-          rotation-per-second="14deg"
+          rotation-per-second="32deg"
           camera-controls
           interaction-prompt="none"
           camera-orbit="0deg 75deg 2.5m"
@@ -655,7 +655,7 @@ body{color:#fff0e8;background:radial-gradient(ellipse at 50% 0%,#6b2c1b55,transp
           <span>PLAYER ONLINE</span>
           <strong>· WAITING FOR THANGAM</strong>
         </div>
-        <div class="stage-caption">DRAG TO ROTATE · PINCH TO ZOOM<br>EMBER MODE / PLAYER ONE</div>
+        <div class="stage-caption">SUBJECT DOSSIER // CLASSIFIED<br>OBSERVATION: COMPLETELY IRRESISTIBLE</div>
       </div>
     </section>
 
