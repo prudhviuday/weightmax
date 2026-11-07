@@ -570,6 +570,128 @@ body{color:#fff0e8;background:radial-gradient(ellipse at 50% 0%,#6b2c1b55,transp
 @media(max-width:700px){.symbol-one{left:1%;top:21%}.symbol-two{right:1%;top:70%}}
 @media(prefers-reduced-motion:reduce){.ambient-symbol{animation:none}}
 
+  
+    /* Visible forensic-style profile dossier */
+    .dossier {
+      width: min(940px, 100%);
+      margin: 18px auto 0;
+      padding: 22px;
+      overflow: hidden;
+      position: relative;
+      border: 1px solid #a94e30;
+      border-radius: 16px;
+      background:
+        radial-gradient(ellipse at 100% 0%, #ff713f18, transparent 42%),
+        linear-gradient(145deg, #241713, #160f0d 72%);
+      box-shadow: inset 0 0 34px #ff713f0a, 0 16px 38px #0005;
+    }
+    .dossier::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 22px; right: 22px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #ff713f, #ffc08c, #ff713f, transparent);
+      box-shadow: 0 0 14px #ff713f88;
+    }
+    .dossier-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 16px;
+      padding-bottom: 17px;
+      border-bottom: 1px solid #70402e;
+    }
+    .dossier-kicker {
+      color: #ff9a63;
+      font: 850 9px/1.5 ui-monospace, SFMono-Regular, Menlo, monospace;
+      letter-spacing: .19em;
+      text-transform: uppercase;
+    }
+    .dossier-title {
+      margin: 6px 0 0;
+      color: #fff0e8;
+      font-size: clamp(20px, 3vw, 27px);
+      font-weight: 950;
+      letter-spacing: -.055em;
+    }
+    .dossier-title span { color: #ff8b58; }
+    .dossier-stamp {
+      flex: 0 0 auto;
+      padding: 7px 9px;
+      border: 1px solid #a95737;
+      border-radius: 5px;
+      color: #ffb18b;
+      font: 850 8px/1.4 ui-monospace, SFMono-Regular, Menlo, monospace;
+      letter-spacing: .12em;
+      text-align: center;
+      text-transform: uppercase;
+      transform: rotate(-2deg);
+    }
+    .dossier-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 9px;
+      padding-top: 16px;
+    }
+    .dossier-entry {
+      min-width: 0;
+      min-height: 68px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 11px 13px;
+      border: 1px solid #593629;
+      border-radius: 9px;
+      background: linear-gradient(110deg, #301c15, #211510);
+    }
+    .dossier-number {
+      width: 29px;
+      height: 29px;
+      flex: 0 0 29px;
+      display: grid;
+      place-items: center;
+      border: 1px solid #a34d30;
+      border-radius: 7px;
+      color: #ff9a63;
+      background: #ff713f12;
+      font: 900 10px/1 ui-monospace, SFMono-Regular, Menlo, monospace;
+    }
+    .dossier-label {
+      display: block;
+      margin-bottom: 4px;
+      color: #c08c75;
+      font: 800 8px/1.3 ui-monospace, SFMono-Regular, Menlo, monospace;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+    .dossier-value {
+      display: block;
+      color: #fff0e8;
+      font-size: 13px;
+      font-weight: 850;
+      line-height: 1.35;
+      overflow-wrap: anywhere;
+    }
+    .dossier-value em { color: #ff9564; font-style: normal; }
+    .dossier-foot {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 13px;
+      color: #a97b68;
+      font: 750 7px/1.5 ui-monospace, SFMono-Regular, Menlo, monospace;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+    @media(max-width:600px) {
+      .dossier { padding: 17px 13px; margin-top: 13px; }
+      .dossier-head { align-items: start; }
+      .dossier-stamp { font-size: 7px; padding: 6px; }
+      .dossier-grid { grid-template-columns: 1fr; gap: 7px; padding-top: 12px; }
+      .dossier-entry { min-height: 58px; }
+      .dossier-foot { flex-wrap: wrap; }
+    }
+
   </style>
 </head>
 <body>
@@ -657,6 +779,27 @@ body{color:#fff0e8;background:radial-gradient(ellipse at 50% 0%,#6b2c1b55,transp
         </div>
         <div class="stage-caption">SUBJECT DOSSIER // CLASSIFIED<br>OBSERVATION: COMPLETELY IRRESISTIBLE</div>
       </div>
+    </section>
+
+
+    <section class="dossier" aria-labelledby="dossier-title">
+      <div class="dossier-head">
+        <div>
+          <div class="dossier-kicker">Forensic profile // Subject analysis</div>
+          <h2 class="dossier-title" id="dossier-title">SUBJECT DOSSIER: <span>THANGAM</span></h2>
+        </div>
+        <div class="dossier-stamp">CLASSIFIED<br>CASE 001</div>
+      </div>
+      <div class="dossier-grid">
+        <div class="dossier-entry"><span class="dossier-number">01</span><div><span class="dossier-label">Case file</span><strong class="dossier-value"><em>001:</em> THANGAM</strong></div></div>
+        <div class="dossier-entry"><span class="dossier-number">02</span><div><span class="dossier-label">Known aliases</span><strong class="dossier-value">Sweety · Amma</strong></div></div>
+        <div class="dossier-entry"><span class="dossier-number">03</span><div><span class="dossier-label">Known offence</span><strong class="dossier-value">Stole Papa’s heart</strong></div></div>
+        <div class="dossier-entry"><span class="dossier-number">04</span><div><span class="dossier-label">Primary weapon</span><strong class="dossier-value">One smile</strong></div></div>
+        <div class="dossier-entry"><span class="dossier-number">05</span><div><span class="dossier-label">Threat level</span><strong class="dossier-value"><em>Irresistible</em></strong></div></div>
+        <div class="dossier-entry"><span class="dossier-number">06</span><div><span class="dossier-label">Profile match</span><strong class="dossier-value"><em>100%</em></strong></div></div>
+        <div class="dossier-entry"><span class="dossier-number">07</span><div><span class="dossier-label">Signature trait</span><strong class="dossier-value">Unfairly adorable</strong></div></div>
+      </div>
+      <div class="dossier-foot"><span>Evidence status: overwhelming</span><span>Investigator: Papa // Verdict: guilty of being loved</span></div>
     </section>
 
     <section class="countdown-section" aria-labelledby="countdown-title">
