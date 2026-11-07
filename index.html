@@ -1,0 +1,890 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#17110f">
+  <meta name="description" content="A warm little countdown until my favourite human comes home.">
+  <title>THANGAM.EXE // Waiting for you</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer@4.1.0/dist/model-viewer.min.js"></script>
+  <style>
+    :root {
+      --orange: #e96745;
+      --orange-dark: #b9422c;
+      --cream: #fff8f3;
+      --paper: #fffdfb;
+      --ink: #272321;
+      --muted: #786e69;
+      --line: #eaded8;
+      --dark: #292320;
+      --ember: #f49b7c;
+      --shadow: 0 22px 65px rgba(93, 48, 33, .12);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--ink);
+      background:
+        radial-gradient(ellipse at 8% 4%, #f7cdbb66, transparent 34rem),
+        radial-gradient(ellipse at 92% 20%, #edb49e38, transparent 32rem),
+        var(--cream);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    .topline {
+      min-height: 32px;
+      padding: 8px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      background: var(--dark);
+      color: #f7e9e2;
+      font: 800 9px/1.4 ui-monospace, SFMono-Regular, Menlo, monospace;
+      letter-spacing: .16em;
+      text-align: center;
+      text-transform: uppercase;
+    }
+    .online-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #e96745;
+      box-shadow: 0 0 0 4px #e9674527, 0 0 12px #e96745;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    .site-header {
+      width: min(1160px, calc(100% - 42px));
+      height: 68px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #eaded8a8;
+    }
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--dark);
+      font-size: 17px;
+      font-weight: 950;
+      letter-spacing: -.055em;
+    }
+    .brand-mark {
+      position: relative;
+      width: 25px;
+      height: 25px;
+      overflow: hidden;
+      border-radius: 50%;
+      background: var(--orange);
+      box-shadow: 0 4px 13px #e9674530;
+    }
+    .brand-mark::after {
+      content: "";
+      position: absolute;
+      top: -5px;
+      left: 12px;
+      width: 3px;
+      height: 36px;
+      transform: rotate(34deg);
+      background: white;
+    }
+    .brand span:last-child { color: var(--orange-dark); }
+    .header-meta {
+      color: #8e7b70;
+      font: 750 9px/1.4 ui-monospace, SFMono-Regular, Menlo, monospace;
+      letter-spacing: .14em;
+      text-align: right;
+      text-transform: uppercase;
+    }
+
+    main {
+      width: min(1160px, calc(100% - 42px));
+      margin: auto;
+      padding: 35px 0 30px;
+    }
+
+    .hero-copy {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 24px;
+      margin: 0 auto 20px;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      color: var(--orange-dark);
+      font: 950 10px/1.4 ui-monospace, SFMono-Regular, Menlo, monospace;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+    .eyebrow::before {
+      content: "";
+      width: 22px;
+      height: 2px;
+      background: var(--orange);
+    }
+    h1 {
+      margin: 10px 0 0;
+      font-size: clamp(33px, 5vw, 57px);
+      line-height: .98;
+      font-weight: 950;
+      letter-spacing: -.075em;
+    }
+    h1 span { color: var(--orange-dark); }
+    .hero-copy p {
+      width: min(340px, 35%);
+      margin: 0 0 3px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.75;
+    }
+
+    .stage {
+      position: relative;
+      isolation: isolate;
+      height: clamp(430px, 56vw, 610px);
+      min-height: 430px;
+      overflow: hidden;
+      border: 1px solid #e4bca9;
+      border-radius: 22px;
+      background: radial-gradient(ellipse at 50% 34%, #fffdf9 0%, #fff4eb 42%, #f4dfd2 100%);
+      box-shadow: inset 0 0 90px #b86c4510, var(--shadow);
+    }
+    .stage::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(ellipse at 16% 18%, #f7b38b30 0%, transparent 38%),
+        radial-gradient(ellipse at 88% 80%, #d75e4220 0%, transparent 40%),
+        linear-gradient(135deg, #ffffff55, transparent 62%);
+      animation: studioLight 14s ease-in-out infinite alternate;
+    }
+    .stage::after {
+      content: "ANDROID SYSTEM / WAITING MODE";
+      position: absolute;
+      z-index: 0;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #934d3819;
+      font: 900 clamp(17px, 3vw, 36px)/1 ui-monospace, SFMono-Regular, Menlo, monospace;
+      letter-spacing: .18em;
+      white-space: nowrap;
+      pointer-events: none;
+    }
+    .stage-glow {
+      position: absolute;
+      z-index: 1;
+      left: 50%;
+      top: 47%;
+      width: min(61%, 470px);
+      aspect-ratio: 1;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      background: radial-gradient(circle, #e9674527 0%, #e967450d 48%, transparent 72%);
+      filter: blur(7px);
+      pointer-events: none;
+    }
+
+    .hud-radar {
+      position: absolute;
+      z-index: 1;
+      left: 50%;
+      top: 47%;
+      width: min(59%, 445px);
+      aspect-ratio: 1;
+      transform: translate(-50%, -50%);
+      border: 1px solid #b9694a48;
+      border-radius: 50%;
+      opacity: .82;
+      pointer-events: none;
+    }
+    .hud-radar::before {
+      content: "";
+      position: absolute;
+      inset: 8%;
+      border: 1px solid #b9694a38;
+      border-radius: 50%;
+      box-shadow: inset 0 0 0 1px #b9694a0d, 0 0 28px #d75e4210;
+    }
+    .hud-radar::after {
+      content: "";
+      position: absolute;
+      inset: -1%;
+      border-radius: 50%;
+      background: conic-gradient(from 0deg, transparent 0deg 292deg, #df734b08 320deg, #df734b32 342deg, #df734b70 359deg);
+      -webkit-mask: radial-gradient(circle, transparent 48%, #000 49% 100%);
+      mask: radial-gradient(circle, transparent 48%, #000 49% 100%);
+      animation: radarSweep 18s linear infinite;
+    }
+    .radar-ring {
+      position: absolute;
+      inset: 19%;
+      border: 1px dashed #b9694a35;
+      border-radius: 50%;
+      animation: radarRotate 48s linear infinite;
+    }
+    .radar-ring.inner {
+      inset: 32%;
+      border-style: solid;
+      border-color: #b9694a22;
+      animation: radarRotateReverse 34s linear infinite;
+    }
+    .radar-axis {
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background: linear-gradient(transparent, #b9694a1c 22%, #b9694a2c 50%, #b9694a1c 78%, transparent);
+    }
+    .radar-axis.horizontal {
+      top: 50%;
+      left: 0;
+      right: 0;
+      bottom: auto;
+      width: auto;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #b9694a1c 22%, #b9694a2c 50%, #b9694a1c 78%, transparent);
+    }
+
+    model-viewer {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      display: block;
+      width: 100%;
+      height: 100%;
+      --poster-color: transparent;
+      background: transparent;
+      outline: none;
+      touch-action: pan-y;
+    }
+
+    .scanline {
+      position: absolute;
+      z-index: 3;
+      left: -8%;
+      right: -8%;
+      top: -2px;
+      height: 3px;
+      pointer-events: none;
+      background: linear-gradient(90deg, transparent, #ff6d3b55 8%, #ff8a54 28%, #ffd0a5 50%, #ff8a54 72%, #ff6d3b55 92%, transparent);
+      box-shadow: 0 0 9px 2px #ff713f99, 0 0 28px 7px #ff713f55;
+      animation: scan 5.2s cubic-bezier(.45,0,.55,1) infinite;
+    }
+    .bracket {
+      position: absolute;
+      z-index: 4;
+      width: 29px;
+      height: 29px;
+      border-color: #b9694a86;
+      pointer-events: none;
+    }
+    .bracket.tl { top: 22px; left: 22px; border-top: 1px solid; border-left: 1px solid; }
+    .bracket.tr { top: 22px; right: 22px; border-top: 1px solid; border-right: 1px solid; }
+    .bracket.bl { bottom: 22px; left: 22px; border-bottom: 1px solid; border-left: 1px solid; }
+    .bracket.br { bottom: 22px; right: 22px; border-bottom: 1px solid; border-right: 1px solid; }
+
+    .readout {
+      position: absolute;
+      z-index: 5;
+      color: #85513fbd;
+      font: 750 8px/1.8 ui-monospace, SFMono-Regular, Menlo, monospace;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+      pointer-events: none;
+      text-shadow: 0 1px 0 #fff8f0aa;
+    }
+    .readout em { color: var(--orange-dark); font-style: normal; }
+    .readout.left { top: 75px; left: 35px; }
+    .readout.right { right: 35px; bottom: 76px; text-align: right; }
+    .readout .dim { color: #a68b7d; }
+    .corner-mark {
+      position: absolute;
+      z-index: 5;
+      color: #96533fbd;
+      font: 750 7px/1.5 ui-monospace, SFMono-Regular, Menlo, monospace;
+      letter-spacing: .15em;
+      pointer-events: none;
+    }
+    .corner-mark.top-right { top: 75px; right: 35px; text-align: right; }
+    .corner-mark.bottom-left { bottom: 76px; left: 35px; }
+
+    .stage-status {
+      position: absolute;
+      z-index: 6;
+      left: 50%;
+      bottom: 20px;
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      padding: 9px 13px;
+      border: 1px solid #d99a7b88;
+      border-radius: 999px;
+      background: #fff8f0df;
+      color: #785141;
+      box-shadow: 0 4px 18px #87442a12;
+      font: 800 8px/1.3 ui-monospace, SFMono-Regular, Menlo, monospace;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      backdrop-filter: blur(10px);
+    }
+    .stage-status i {
+      width: 6px;
+      height: 6px;
+      flex: 0 0 auto;
+      border-radius: 50%;
+      background: #df734b;
+      box-shadow: 0 0 0 4px #df734b20;
+    }
+    .stage-status strong { color: #b64f35; }
+    .loading-note {
+      position: absolute;
+      z-index: 7;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 10px 15px;
+      border: 1px solid #d99a7b88;
+      border-radius: 999px;
+      background: #fff8f0ed;
+      color: #785141;
+      font: 800 9px/1.4 ui-monospace, SFMono-Regular, Menlo, monospace;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      pointer-events: none;
+      transition: opacity .35s ease;
+    }
+    .loading-note.done { opacity: 0; }
+
+    .stage-caption {
+      position: absolute;
+      z-index: 5;
+      right: 23px;
+      bottom: 22px;
+      color: #96533fbd;
+      font: 750 7px/1.6 ui-monospace, SFMono-Regular, Menlo, monospace;
+      letter-spacing: .12em;
+      text-align: right;
+      text-transform: uppercase;
+      pointer-events: none;
+    }
+
+    .countdown-section {
+      width: min(780px, 100%);
+      margin: 30px auto 0;
+    }
+    .count-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 14px;
+    }
+    .count-head .eyebrow { font-size: 9px; }
+    .count-head h2 {
+      margin: 8px 0 0;
+      color: var(--dark);
+      font-size: clamp(24px, 3.4vw, 34px);
+      font-weight: 950;
+      letter-spacing: -.065em;
+    }
+    .count-id {
+      color: #987d70;
+      font: 750 8px/1.6 ui-monospace, SFMono-Regular, Menlo, monospace;
+      letter-spacing: .12em;
+      text-align: right;
+      text-transform: uppercase;
+    }
+    .timer {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+      padding: 13px;
+      border: 1px solid var(--line);
+      border-radius: 15px;
+      background: #fffdfbeF;
+      box-shadow: 0 10px 30px #87442a0b;
+    }
+    .time-unit {
+      min-width: 0;
+      padding: 15px 9px 13px;
+      border: 1px solid #eedbd1;
+      border-radius: 10px;
+      background: linear-gradient(145deg, #fffaf6, #fff0e9);
+      text-align: center;
+    }
+    .number {
+      display: block;
+      color: #803c2b;
+      font: 900 clamp(32px, 5.2vw, 48px)/1 ui-monospace, SFMono-Regular, Menlo, monospace;
+      letter-spacing: -.07em;
+      font-variant-numeric: tabular-nums;
+    }
+    .unit {
+      display: block;
+      margin-top: 8px;
+      color: #9a7b6e;
+      font: 850 8px/1.4 ui-monospace, SFMono-Regular, Menlo, monospace;
+      letter-spacing: .19em;
+      text-transform: uppercase;
+    }
+    .target-line {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      margin: 13px 0 0;
+      color: #89746a;
+      font-size: 11px;
+      text-align: center;
+    }
+    .target-line strong { color: var(--orange-dark); font-weight: 850; }
+
+    .message {
+      width: min(660px, 100%);
+      margin: 34px auto 0;
+      padding: 20px 22px;
+      border: 1px solid #eaded8;
+      border-radius: 13px;
+      background: #fffdfbba;
+      color: #786e69;
+      font-size: 12px;
+      line-height: 1.8;
+      text-align: center;
+    }
+    .message b { color: #8b4935; }
+    .message .symbol { color: var(--orange); font-size: 14px; }
+    footer {
+      margin: 24px 0 0;
+      color: #a18b80;
+      font: 800 8px/1.5 ui-monospace, SFMono-Regular, Menlo, monospace;
+      letter-spacing: .16em;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: .75; box-shadow: 0 0 0 3px #e9674520, 0 0 8px #e96745; }
+      50% { opacity: 1; box-shadow: 0 0 0 5px #e967452b, 0 0 15px #e96745; }
+    }
+    @keyframes studioLight {
+      0% { opacity: .72; filter: saturate(.85); }
+      100% { opacity: 1; filter: saturate(1.06); }
+    }
+    @keyframes radarSweep { to { transform: rotate(360deg); } }
+    @keyframes radarRotate { to { transform: rotate(360deg); } }
+    @keyframes radarRotateReverse { to { transform: rotate(-360deg); } }
+    @keyframes scan {
+      0% { transform: translateY(0); opacity: 0; }
+      8% { opacity: 1; }
+      88% { opacity: .9; }
+      100% { transform: translateY(620px); opacity: 0; }
+    }
+
+    @media (max-width: 700px) {
+      .site-header, main { width: calc(100% - 26px); }
+      .site-header { height: 58px; }
+      main { padding-top: 26px; }
+      .header-meta { font-size: 7px; }
+      .hero-copy { display: block; margin-bottom: 16px; }
+      h1 { font-size: clamp(34px, 9vw, 48px); }
+      .hero-copy p { width: min(100%, 460px); margin-top: 12px; font-size: 11px; }
+      .stage { height: 470px; min-height: 390px; border-radius: 15px; }
+      .stage::after { font-size: 16px; letter-spacing: .1em; }
+      .hud-radar { width: min(83%, 390px); top: 47%; }
+      .readout { font-size: 6px; }
+      .readout.left { top: 57px; left: 16px; }
+      .readout.right { right: 16px; bottom: 58px; }
+      .corner-mark { font-size: 6px; }
+      .corner-mark.top-right { top: 58px; right: 16px; }
+      .corner-mark.bottom-left { bottom: 58px; left: 16px; }
+      .bracket.tl { top: 13px; left: 13px; }
+      .bracket.tr { top: 13px; right: 13px; }
+      .bracket.bl { bottom: 13px; left: 13px; }
+      .bracket.br { bottom: 13px; right: 13px; }
+      .stage-status { bottom: 13px; font-size: 7px; padding: 8px 10px; }
+      .stage-caption { display: none; }
+      .countdown-section { margin-top: 25px; }
+      .count-head { align-items: start; }
+      .count-id { max-width: 110px; font-size: 7px; }
+      .timer { gap: 6px; padding: 8px; }
+      .time-unit { padding: 13px 2px 11px; border-radius: 8px; }
+      .number { font-size: clamp(25px, 7.5vw, 36px); }
+      .unit { font-size: 7px; letter-spacing: .12em; }
+      .message { margin-top: 24px; padding: 17px 14px; font-size: 11px; }
+    }
+    @media (max-width: 390px) {
+      .topline { font-size: 7px; letter-spacing: .1em; }
+      .stage { height: 420px; }
+      .readout.left, .corner-mark.bottom-left { display: none; }
+      .target-line { flex-wrap: wrap; font-size: 10px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+      }
+    }
+
+:root{--orange:#ff713f;--orange-dark:#ff9a63;--cream:#17110f;--paper:#211714;--ink:#fff0e8;--muted:#c19b8a;--line:#5a3327;--dark:#100c0b;--ember:#ff9a63;--shadow:0 24px 70px rgba(0,0,0,.42)}
+body{color:#fff0e8;background:radial-gradient(ellipse at 50% 0%,#6b2c1b55,transparent 42rem),radial-gradient(ellipse at 100% 70%,#a83e1d20,transparent 35rem),#17110f}
+.topline{background:#090706;color:#f5c5ad;border-bottom:1px solid #713a29}.site-header{border-color:#613728}
+.brand,.header-meta,.hero-copy p,.count-id,.target-line,footer{color:#c7a091}
+.brand span:last-child,h1 span,.count-head h2,.number,.readout em,.message b,.target-line strong{color:#ff8b58}.eyebrow{color:#ff9a63}
+.stage{border:1px solid #a34e30;background:radial-gradient(ellipse at 50% 40%,#54291d 0%,#291711 46%,#120d0b 100%);box-shadow:inset 0 0 100px #ff713f12,0 24px 70px #0009}
+.stage:before{background:radial-gradient(ellipse at 18% 18%,#ff7b4030,transparent 38%),radial-gradient(ellipse at 88% 80%,#c23e2428,transparent 40%),linear-gradient(135deg,#ffffff08,transparent 62%)}
+.stage:after{color:#ff9a631b}.stage-glow{background:radial-gradient(circle,#ff713f30 0%,#ff713f0d 52%,transparent 72%)}
+.hud-radar{border-color:#ff956055}.hud-radar:before{border-color:#ff956044;box-shadow:inset 0 0 0 1px #ff956011,0 0 28px #ff713f15}
+.radar-ring{border-color:#ff956044}.radar-ring.inner{border-color:#ff95602b}
+.radar-axis{background:linear-gradient(transparent,#ff95602a 22%,#ff956045 50%,#ff95602a 78%,transparent)}
+.radar-axis.horizontal{background:linear-gradient(90deg,transparent,#ff95602a 22%,#ff956045 50%,#ff95602a 78%,transparent)}
+.scanline{background:linear-gradient(90deg,transparent,#ff6d3b55 8%,#ff8a54 28%,#ffd0a5 50%,#ff8a54 72%,#ff6d3b55 92%,transparent)}
+.bracket{border-color:#ff9560a0}.readout{color:#e7b29a;text-shadow:0 1px 0 #100906}.readout .dim,.corner-mark{color:#bd8872}
+.stage-status,.loading-note{border-color:#a95737;background:#21130ff0;color:#f0b69c;box-shadow:0 5px 22px #0005}
+.stage-status i{background:#ff713f;box-shadow:0 0 0 4px #ff713f25,0 0 13px #ff713f}.stage-status strong{color:#ff9a63}
+.timer{border-color:#633a2c;background:#211613;box-shadow:0 10px 30px #0004}.time-unit{border-color:#70402e;background:linear-gradient(145deg,#321d16,#21130f)}
+.number{color:#ff9a63;text-shadow:0 0 22px #ff713f25}.unit{color:#c29581}
+.message{border-color:#613a2c;background:#211613cc;color:#d0aa99}.message .symbol{color:#ff8a59}
+.ambient-symbol{position:fixed;z-index:0;pointer-events:none;color:#ff8b5840;font-size:19px;text-shadow:0 0 18px #ff713f55;animation:roam 19s ease-in-out infinite alternate}
+.symbol-one{top:24%;left:4%;animation-duration:23s}.symbol-two{top:68%;right:5%;font-size:15px;animation-duration:28s;animation-delay:-9s}
+@keyframes roam{0%{transform:translate3d(0,0,0) rotate(-12deg);opacity:.35}50%{transform:translate3d(24px,-28px,0) rotate(12deg);opacity:.8}100%{transform:translate3d(-12px,18px,0) rotate(-5deg);opacity:.3}}
+@media(max-width:700px){.symbol-one{left:1%;top:21%}.symbol-two{right:1%;top:70%}}
+@media(prefers-reduced-motion:reduce){.ambient-symbol{animation:none}}
+
+  
+    /* Visible forensic-style profile dossier */
+    .dossier {
+      width: min(940px, 100%);
+      margin: 18px auto 0;
+      padding: 22px;
+      overflow: hidden;
+      position: relative;
+      border: 1px solid #a94e30;
+      border-radius: 16px;
+      background:
+        radial-gradient(ellipse at 100% 0%, #ff713f18, transparent 42%),
+        linear-gradient(145deg, #241713, #160f0d 72%);
+      box-shadow: inset 0 0 34px #ff713f0a, 0 16px 38px #0005;
+    }
+    .dossier::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 22px; right: 22px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #ff713f, #ffc08c, #ff713f, transparent);
+      box-shadow: 0 0 14px #ff713f88;
+    }
+    .dossier-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 16px;
+      padding-bottom: 17px;
+      border-bottom: 1px solid #70402e;
+    }
+    .dossier-kicker {
+      color: #ff9a63;
+      font: 850 9px/1.5 ui-monospace, SFMono-Regular, Menlo, monospace;
+      letter-spacing: .19em;
+      text-transform: uppercase;
+    }
+    .dossier-title {
+      margin: 6px 0 0;
+      color: #fff0e8;
+      font-size: clamp(20px, 3vw, 27px);
+      font-weight: 950;
+      letter-spacing: -.055em;
+    }
+    .dossier-title span { color: #ff8b58; }
+    .dossier-stamp {
+      flex: 0 0 auto;
+      padding: 7px 9px;
+      border: 1px solid #a95737;
+      border-radius: 5px;
+      color: #ffb18b;
+      font: 850 8px/1.4 ui-monospace, SFMono-Regular, Menlo, monospace;
+      letter-spacing: .12em;
+      text-align: center;
+      text-transform: uppercase;
+      transform: rotate(-2deg);
+    }
+    .dossier-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 9px;
+      padding-top: 16px;
+    }
+    .dossier-entry {
+      min-width: 0;
+      min-height: 68px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 11px 13px;
+      border: 1px solid #593629;
+      border-radius: 9px;
+      background: linear-gradient(110deg, #301c15, #211510);
+    }
+    .dossier-number {
+      width: 29px;
+      height: 29px;
+      flex: 0 0 29px;
+      display: grid;
+      place-items: center;
+      border: 1px solid #a34d30;
+      border-radius: 7px;
+      color: #ff9a63;
+      background: #ff713f12;
+      font: 900 10px/1 ui-monospace, SFMono-Regular, Menlo, monospace;
+    }
+    .dossier-label {
+      display: block;
+      margin-bottom: 4px;
+      color: #c08c75;
+      font: 800 8px/1.3 ui-monospace, SFMono-Regular, Menlo, monospace;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+    .dossier-value {
+      display: block;
+      color: #fff0e8;
+      font-size: 13px;
+      font-weight: 850;
+      line-height: 1.35;
+      overflow-wrap: anywhere;
+    }
+    .dossier-value em { color: #ff9564; font-style: normal; }
+    .dossier-foot {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 13px;
+      color: #a97b68;
+      font: 750 7px/1.5 ui-monospace, SFMono-Regular, Menlo, monospace;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+    @media(max-width:600px) {
+      .dossier { padding: 17px 13px; margin-top: 13px; }
+      .dossier-head { align-items: start; }
+      .dossier-stamp { font-size: 7px; padding: 6px; }
+      .dossier-grid { grid-template-columns: 1fr; gap: 7px; padding-top: 12px; }
+      .dossier-entry { min-height: 58px; }
+      .dossier-foot { flex-wrap: wrap; }
+    }
+
+  </style>
+</head>
+<body>
+  <div class="topline">
+    <span class="online-dot" aria-hidden="true"></span>
+    <span>WAITING PROTOCOL // SYSTEM ACTIVE</span>
+    <span>·</span>
+    <span>WAITING MODE</span>
+  </div>
+
+  <div class="ambient-symbol symbol-one" aria-hidden="true">♡</div>
+  <div class="ambient-symbol symbol-two" aria-hidden="true">♥</div>
+
+  <header class="site-header">
+    <div class="brand"><span class="brand-mark" aria-hidden="true"></span><span>THANGAM<span>.EXE</span></span></div>
+    <div class="header-meta">PERSONAL PLAYER INTERFACE<br>BUILD 16.11.26 / CHENNAI</div>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <div>
+          <div class="eyebrow">PLAYER ONE // SPECIAL EDITION</div>
+          <h1 id="hero-title">Thangam, <span>my favourite human.</span></h1>
+        </div>
+        <p>Sweety is out exploring. This little world is on standby until you’re back, thangam.</p>
+      </div>
+
+      <div class="stage" id="stage" aria-label="Animated 3D android character">
+        <div class="stage-glow"></div>
+        <div class="hud-radar" aria-hidden="true">
+          <div class="radar-ring"></div>
+          <div class="radar-ring inner"></div>
+          <div class="radar-axis"></div>
+          <div class="radar-axis horizontal"></div>
+        </div>
+        <div class="bracket tl" aria-hidden="true"></div>
+        <div class="bracket tr" aria-hidden="true"></div>
+        <div class="bracket bl" aria-hidden="true"></div>
+        <div class="bracket br" aria-hidden="true"></div>
+
+        <div class="readout left" aria-hidden="true">
+          CASE FILE <em>001 / OPEN</em><br>
+          SUBJECT: <em>THANGAM</em><br>
+          <span class="dim">KNOWN ALIASES: SWEETY · AMMA</span>
+        </div>
+        <div class="corner-mark top-right" aria-hidden="true">
+          PROFILE MATCH: <em>100%</em><br>THREAT LEVEL: IRRESISTIBLE
+        </div>
+        <div class="corner-mark bottom-left" aria-hidden="true">
+          SIGNATURE TRAIT<br>UNFAIRLY ADORABLE
+        </div>
+        <div class="readout right" aria-hidden="true">
+          <span class="dim">KNOWN OFFENCE</span><br>
+          <em>STOLE MY HEART</em><br>
+          PRIMARY WEAPON: <em>ONE SMILE</em>
+        </div>
+
+        <div class="scanline" aria-hidden="true"></div>
+        <div class="loading-note" id="loading-note">Loading your favourite player…</div>
+
+        <model-viewer
+          id="her-model"
+          src="./stand.glb"
+          alt="A 3D character standing in a softly lit game-like scene"
+          loading="eager"
+          reveal="auto"
+          auto-rotate
+          auto-rotate-delay="0"
+          rotation-per-second="32deg"
+          camera-controls
+          interaction-prompt="none"
+          camera-orbit="0deg 75deg 2.5m"
+          field-of-view="22deg"
+          environment-image="legacy"
+          shadow-intensity="0.4"
+          shadow-softness="0.9"
+          exposure="0.9">
+        </model-viewer>
+
+        <div class="stage-status">
+          <i aria-hidden="true"></i>
+          <span>PLAYER ONLINE</span>
+          <strong>· WAITING FOR THANGAM</strong>
+        </div>
+        <div class="stage-caption">SUBJECT DOSSIER // CLASSIFIED<br>OBSERVATION: COMPLETELY IRRESISTIBLE</div>
+      </div>
+    </section>
+
+
+    <section class="dossier" aria-labelledby="dossier-title">
+      <div class="dossier-head">
+        <div>
+          <div class="dossier-kicker">Forensic profile // Subject analysis</div>
+          <h2 class="dossier-title" id="dossier-title">SUBJECT DOSSIER: <span>THANGAM</span></h2>
+        </div>
+        <div class="dossier-stamp">CLASSIFIED<br>CASE 001</div>
+      </div>
+      <div class="dossier-grid">
+        <div class="dossier-entry"><span class="dossier-number">01</span><div><span class="dossier-label">Case file</span><strong class="dossier-value"><em>001:</em> THANGAM</strong></div></div>
+        <div class="dossier-entry"><span class="dossier-number">02</span><div><span class="dossier-label">Known aliases</span><strong class="dossier-value">Sweety · Amma</strong></div></div>
+        <div class="dossier-entry"><span class="dossier-number">03</span><div><span class="dossier-label">Known offence</span><strong class="dossier-value">Stole My heart</strong></div></div>
+        <div class="dossier-entry"><span class="dossier-number">04</span><div><span class="dossier-label">Primary weapon</span><strong class="dossier-value">One smile</strong></div></div>
+        <div class="dossier-entry"><span class="dossier-number">05</span><div><span class="dossier-label">Threat level</span><strong class="dossier-value"><em>Irresistible</em></strong></div></div>
+        <div class="dossier-entry"><span class="dossier-number">06</span><div><span class="dossier-label">Profile match</span><strong class="dossier-value"><em>100%</em></strong></div></div>
+        <div class="dossier-entry"><span class="dossier-number">07</span><div><span class="dossier-label">Signature trait</span><strong class="dossier-value">Unfairly adorable</strong></div></div>
+      </div>
+      <div class="dossier-foot"><span>Evidence status: overwhelming</span><span>Investigator: Papa // Verdict: guilty of being loved</span></div>
+    </section>
+
+    <section class="countdown-section" aria-labelledby="countdown-title">
+      <div class="count-head">
+        <div>
+          <div class="eyebrow">COUNTDOWN // HOMECOMING TIMER</div>
+          <h2 id="countdown-title">Until you're back.</h2>
+        </div>
+        <div class="count-id">TARGET ARRIVAL<br>16 NOV 2026 · 12:00 IST</div>
+      </div>
+
+      <div class="timer" role="timer" aria-live="off">
+        <div class="time-unit"><span class="number" id="days">--</span><span class="unit">Days</span></div>
+        <div class="time-unit"><span class="number" id="hours">--</span><span class="unit">Hours</span></div>
+        <div class="time-unit"><span class="number" id="minutes">--</span><span class="unit">Minutes</span></div>
+        <div class="time-unit"><span class="number" id="seconds">--</span><span class="unit">Seconds</span></div>
+      </div>
+      <p class="target-line" id="target-line">EXPECTED ARRIVAL: <strong>MONDAY, 16 NOVEMBER 2026 · 12:00 PM IST</strong></p>
+    </section>
+
+    <div class="message">
+      Hope you’re having the loveliest trip, sweety. Take all the pictures, make all the memories, and come back safe.
+      <b>Come back soon, amma. Papa is counting every second, thangam.</b>
+    </div>
+
+    <footer>PLAYER STATUS: PATIENT // HEART STATUS: NOT SO MUCH</footer>
+  </main>
+
+  <script>
+    (function () {
+      // 16 November 2026, 12:00 PM in India (UTC+05:30).
+      const waiting = new Date("2026-11-16T12:00:00+05:30").getTime();
+      const fields = {
+        days: document.getElementById("days"),
+        hours: document.getElementById("hours"),
+        minutes: document.getElementById("minutes"),
+        seconds: document.getElementById("seconds")
+      };
+      const targetLine = document.getElementById("target-line");
+      const countTitle = document.getElementById("countdown-title");
+
+      function pad(value) {
+        return String(value).padStart(2, "0");
+      }
+
+      function updateCountdown() {
+        const remaining = waiting - Date.now();
+
+        if (remaining <= 0) {
+          fields.days.textContent = "00";
+          fields.hours.textContent = "00";
+          fields.minutes.textContent = "00";
+          fields.seconds.textContent = "00";
+          countTitle.textContent = "She's back.";
+          targetLine.innerHTML = "<strong>RETURN CONFIRMED // GO GET THAT HUG.</strong>";
+          document.title = "THANGAM.EXE // SHE IS BACK";
+          return;
+        }
+
+        const totalSeconds = Math.floor(remaining / 1000);
+        fields.days.textContent = pad(Math.floor(totalSeconds / 86400));
+        fields.hours.textContent = pad(Math.floor((totalSeconds % 86400) / 3600));
+        fields.minutes.textContent = pad(Math.floor((totalSeconds % 3600) / 60));
+        fields.seconds.textContent = pad(totalSeconds % 60);
+      }
+
+      updateCountdown();
+      window.setInterval(updateCountdown, 1000);
+
+      const viewer = document.getElementById("her-model");
+      const loadingNote = document.getElementById("loading-note");
+
+      viewer.addEventListener("load", function () {
+        loadingNote.classList.add("done");
+      });
+
+      viewer.addEventListener("error", function () {
+        loadingNote.textContent = "Character could not load — refresh to retry";
+        loadingNote.classList.remove("done");
+      });
+
+      if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        viewer.removeAttribute("auto-rotate");
+      }
+    })();
+  </script>
+</body>
+</html>
