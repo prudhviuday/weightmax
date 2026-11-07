@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#fff8f3">
+  <meta name="theme-color" content="#17110f">
   <meta name="description" content="A warm little countdown until my favourite human comes home.">
-  <title>REUNION MODE // Waiting for you</title>
+  <title>THANGAM.EXE // Waiting for you</title>
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer@4.1.0/dist/model-viewer.min.js"></script>
   <style>
@@ -172,7 +172,7 @@
       animation: studioLight 14s ease-in-out infinite alternate;
     }
     .stage::after {
-      content: "REUNION SYSTEM / ANDROID INTERFACE";
+      content: "ANDROID SYSTEM / WAITING MODE";
       position: absolute;
       z-index: 0;
       top: 50%;
@@ -544,29 +544,58 @@
         transition-duration: .01ms !important;
       }
     }
+
+:root{--orange:#ff713f;--orange-dark:#ff9a63;--cream:#17110f;--paper:#211714;--ink:#fff0e8;--muted:#c19b8a;--line:#5a3327;--dark:#100c0b;--ember:#ff9a63;--shadow:0 24px 70px rgba(0,0,0,.42)}
+body{color:#fff0e8;background:radial-gradient(ellipse at 50% 0%,#6b2c1b55,transparent 42rem),radial-gradient(ellipse at 100% 70%,#a83e1d20,transparent 35rem),#17110f}
+.topline{background:#090706;color:#f5c5ad;border-bottom:1px solid #713a29}.site-header{border-color:#613728}
+.brand,.header-meta,.hero-copy p,.count-id,.target-line,footer{color:#c7a091}
+.brand span:last-child,h1 span,.count-head h2,.number,.readout em,.message b,.target-line strong{color:#ff8b58}.eyebrow{color:#ff9a63}
+.stage{border:1px solid #a34e30;background:radial-gradient(ellipse at 50% 40%,#54291d 0%,#291711 46%,#120d0b 100%);box-shadow:inset 0 0 100px #ff713f12,0 24px 70px #0009}
+.stage:before{background:radial-gradient(ellipse at 18% 18%,#ff7b4030,transparent 38%),radial-gradient(ellipse at 88% 80%,#c23e2428,transparent 40%),linear-gradient(135deg,#ffffff08,transparent 62%)}
+.stage:after{color:#ff9a631b}.stage-glow{background:radial-gradient(circle,#ff713f30 0%,#ff713f0d 52%,transparent 72%)}
+.hud-radar{border-color:#ff956055}.hud-radar:before{border-color:#ff956044;box-shadow:inset 0 0 0 1px #ff956011,0 0 28px #ff713f15}
+.radar-ring{border-color:#ff956044}.radar-ring.inner{border-color:#ff95602b}
+.radar-axis{background:linear-gradient(transparent,#ff95602a 22%,#ff956045 50%,#ff95602a 78%,transparent)}
+.radar-axis.horizontal{background:linear-gradient(90deg,transparent,#ff95602a 22%,#ff956045 50%,#ff95602a 78%,transparent)}
+.scanline{background:linear-gradient(180deg,transparent,#ff713f0c 38%,#ff713f27 50%,#ff713f0c 62%,transparent)}
+.bracket{border-color:#ff9560a0}.readout{color:#e7b29a;text-shadow:0 1px 0 #100906}.readout .dim,.corner-mark{color:#bd8872}
+.stage-status,.loading-note{border-color:#a95737;background:#21130ff0;color:#f0b69c;box-shadow:0 5px 22px #0005}
+.stage-status i{background:#ff713f;box-shadow:0 0 0 4px #ff713f25,0 0 13px #ff713f}.stage-status strong{color:#ff9a63}
+.timer{border-color:#633a2c;background:#211613;box-shadow:0 10px 30px #0004}.time-unit{border-color:#70402e;background:linear-gradient(145deg,#321d16,#21130f)}
+.number{color:#ff9a63;text-shadow:0 0 22px #ff713f25}.unit{color:#c29581}
+.message{border-color:#613a2c;background:#211613cc;color:#d0aa99}.message .symbol{color:#ff8a59}
+.ambient-symbol{position:fixed;z-index:0;pointer-events:none;color:#ff8b5840;font-size:19px;text-shadow:0 0 18px #ff713f55;animation:roam 19s ease-in-out infinite alternate}
+.symbol-one{top:24%;left:4%;animation-duration:23s}.symbol-two{top:68%;right:5%;font-size:15px;animation-duration:28s;animation-delay:-9s}
+@keyframes roam{0%{transform:translate3d(0,0,0) rotate(-12deg);opacity:.35}50%{transform:translate3d(24px,-28px,0) rotate(12deg);opacity:.8}100%{transform:translate3d(-12px,18px,0) rotate(-5deg);opacity:.3}}
+@media(max-width:700px){.symbol-one{left:1%;top:21%}.symbol-two{right:1%;top:70%}}
+@media(prefers-reduced-motion:reduce){.ambient-symbol{animation:none}}
+
   </style>
 </head>
 <body>
   <div class="topline">
     <span class="online-dot" aria-hidden="true"></span>
-    <span>REUNION PROTOCOL // SYSTEM ACTIVE</span>
+    <span>WAITING PROTOCOL // SYSTEM ACTIVE</span>
     <span>·</span>
     <span>WAITING MODE</span>
   </div>
 
+  <div class="ambient-symbol symbol-one" aria-hidden="true">♡</div>
+  <div class="ambient-symbol symbol-two" aria-hidden="true">♥</div>
+
   <header class="site-header">
-    <div class="brand"><span class="brand-mark" aria-hidden="true"></span><span>REUNION<span>.OS</span></span></div>
-    <div class="header-meta">PERSONAL ANDROID INTERFACE<br>BUILD 16.11.26 / CHENNAI</div>
+    <div class="brand"><span class="brand-mark" aria-hidden="true"></span><span>THANGAM<span>.EXE</span></span></div>
+    <div class="header-meta">PERSONAL PLAYER INTERFACE<br>BUILD 16.11.26 / CHENNAI</div>
   </header>
 
   <main>
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero-copy">
         <div>
-          <div class="eyebrow">ANDROID COMPANION // UNIT 01</div>
-          <h1 id="hero-title">Her return is <span>my favourite event.</span></h1>
+          <div class="eyebrow">PLAYER ONE // SPECIAL EDITION</div>
+          <h1 id="hero-title">Thangam, <span>my favourite human.</span></h1>
         </div>
-        <p>Trip mode: active. Missing-you mode: maximum. I'm keeping the system running until my favourite human is back.</p>
+        <p>Sweety is out exploring. This little world is on standby until you’re back, amma.</p>
       </div>
 
       <div class="stage" id="stage" aria-label="Animated 3D android character">
@@ -588,10 +617,10 @@
           <span class="dim">EMOTION CORE: WAITING</span>
         </div>
         <div class="corner-mark top-right" aria-hidden="true">
-          POWER 100%<br>RETURN LINK: PENDING
+          POWER 100%<br>HOME LINK: PENDING
         </div>
         <div class="corner-mark bottom-left" aria-hidden="true">
-          WARM ALLOY FINISH<br>EMBER INTERFACE // 01
+          EMBER ZONE<br>PLAYER ONE // 01
         </div>
         <div class="readout right" aria-hidden="true">
           <span class="dim">DESTINATION</span><br>
@@ -600,37 +629,40 @@
         </div>
 
         <div class="scanline" aria-hidden="true"></div>
-        <div class="loading-note" id="loading-note">Initialising android unit…</div>
+        <div class="loading-note" id="loading-note">Loading your favourite player…</div>
 
         <model-viewer
           id="her-model"
           src="./stand.glb"
-          alt="A standing 3D android character"
+          alt="A 3D character standing in a softly lit game-like scene"
           loading="eager"
           reveal="auto"
           auto-rotate
           auto-rotate-delay="0"
-          rotation-per-second="4deg"
+          rotation-per-second="14deg"
           camera-controls
           interaction-prompt="none"
-          environment-image="neutral"
-          shadow-intensity="0.75"
-          exposure="1.15">
+          camera-orbit="0deg 75deg 2.5m"
+          field-of-view="25deg"
+          environment-image="legacy"
+          shadow-intensity="0.4"
+          shadow-softness="0.9"
+          exposure="0.9">
         </model-viewer>
 
         <div class="stage-status">
           <i aria-hidden="true"></i>
-          <span>ANDROID ONLINE</span>
-          <strong>· AWAITING RETURN</strong>
+          <span>PLAYER ONLINE</span>
+          <strong>· WAITING FOR THANGAM</strong>
         </div>
-        <div class="stage-caption">DRAG TO ROTATE · PINCH TO ZOOM<br>ROBOTIC FINISH / EMBER SERIES</div>
+        <div class="stage-caption">DRAG TO ROTATE · PINCH TO ZOOM<br>EMBER MODE / PLAYER ONE</div>
       </div>
     </section>
 
     <section class="countdown-section" aria-labelledby="countdown-title">
       <div class="count-head">
         <div>
-          <div class="eyebrow">COUNTDOWN // RETURN WINDOW</div>
+          <div class="eyebrow">COUNTDOWN // HOMECOMING TIMER</div>
           <h2 id="countdown-title">Until you're back.</h2>
         </div>
         <div class="count-id">TARGET ARRIVAL<br>16 NOV 2026 · 12:00 IST</div>
@@ -647,16 +679,16 @@
 
     <div class="message">
       Hope you're having the loveliest trip. Take all the pictures, make all the memories, and come back safe.
-      <b>There's one very excited human waiting to see you.</b> <span class="symbol">♥</span>
+      <b>Thangam, amma and papa are cheering for you — but papa is counting every second.</b> <span class="symbol">♥</span>
     </div>
 
-    <footer>ENDLESS PATIENCE // VERY LIMITED PATIENCE TO SEE YOU</footer>
+    <footer>PLAYER STATUS: PATIENT // HEART STATUS: NOT SO MUCH</footer>
   </main>
 
   <script>
     (function () {
       // 16 November 2026, 12:00 PM in India (UTC+05:30).
-      const reunion = new Date("2026-11-16T12:00:00+05:30").getTime();
+      const waiting = new Date("2026-11-16T12:00:00+05:30").getTime();
       const fields = {
         days: document.getElementById("days"),
         hours: document.getElementById("hours"),
@@ -671,7 +703,7 @@
       }
 
       function updateCountdown() {
-        const remaining = reunion - Date.now();
+        const remaining = waiting - Date.now();
 
         if (remaining <= 0) {
           fields.days.textContent = "00";
@@ -697,36 +729,12 @@
       const viewer = document.getElementById("her-model");
       const loadingNote = document.getElementById("loading-note");
 
-      viewer.addEventListener("load", async function () {
+      viewer.addEventListener("load", function () {
         loadingNote.classList.add("done");
-
-        // Give the existing avatar a TTgo-inspired copper / metallic android finish.
-        // Original textures remain in place; the warm alloy, specular response and
-        // soft ember emissive tint are applied only in the browser, not to the GLB file.
-        try {
-          const materials = viewer.model && viewer.model.materials ? viewer.model.materials : [];
-          for (const material of materials) {
-            await material.ensureLoaded();
-            const pbr = material.pbrMetallicRoughness;
-            const base = pbr.baseColorFactor;
-            pbr.setBaseColorFactor([
-              Math.min(base[0] * 1.05, 1),
-              Math.min(base[1] * 0.94, 1),
-              Math.min(base[2] * 0.86, 1),
-              base[3]
-            ]);
-            pbr.setMetallicFactor(Math.max(pbr.metallicFactor, 0.58));
-            pbr.setRoughnessFactor(Math.min(pbr.roughnessFactor, 0.36));
-            material.setEmissiveFactor([0.035, 0.008, 0.002]);
-          }
-          document.querySelector(".stage-status strong").textContent = "· EMBER FINISH ACTIVE";
-        } catch (error) {
-          console.warn("Android material finish could not be applied; showing original model.", error);
-        }
       });
 
       viewer.addEventListener("error", function () {
-        loadingNote.textContent = "Android unit could not load — refresh to retry";
+        loadingNote.textContent = "Character could not load — refresh to retry";
         loadingNote.classList.remove("done");
       });
 
