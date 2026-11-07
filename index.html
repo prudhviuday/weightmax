@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#fff7f6">
   <meta name="description" content="A little countdown for someone who is very, very missed.">
-  <title>Counting the moments ♡</title>
+  <title>Counting the moments</title>
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer@4.1.0/dist/model-viewer.min.js"></script>
   <style>
@@ -273,19 +273,6 @@
       font-size: 11px;
     }
 
-    .model-heart {
-      display: grid;
-      width: 37px;
-      height: 37px;
-      flex: 0 0 auto;
-      place-items: center;
-      border: 1px solid rgba(216, 121, 145, .2);
-      border-radius: 50%;
-      background: #fff7f8;
-      color: var(--rose);
-      font-size: 17px;
-    }
-
     .note {
       width: min(640px, 100%);
       margin: 38px auto 0;
@@ -320,27 +307,9 @@
       text-transform: uppercase;
     }
 
-    .float-heart {
-      position: fixed;
-      z-index: -1;
-      color: rgba(216, 121, 145, .34);
-      font-size: 19px;
-      pointer-events: none;
-      animation: drift 8s ease-in-out infinite;
-    }
-
-    .float-heart.one { top: 18%; left: 5%; }
-    .float-heart.two { top: 35%; right: 6%; font-size: 14px; animation-delay: -3s; }
-    .float-heart.three { bottom: 15%; left: 9%; font-size: 13px; animation-delay: -5s; }
-
     @keyframes arrive {
       from { opacity: 0; transform: translateY(15px); }
       to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes drift {
-      0%, 100% { transform: translateY(0) rotate(-8deg); }
-      50% { transform: translateY(-13px) rotate(8deg); }
     }
 
     @media (max-width: 680px) {
@@ -353,8 +322,6 @@
       .models { grid-template-columns: 1fr; gap: 15px; }
       .model-stage { height: 350px; min-height: 300px; }
       model-viewer { min-height: 300px; }
-      .float-heart.one { left: 2%; }
-      .float-heart.two { right: 2%; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -368,10 +335,6 @@
   </style>
 </head>
 <body>
-  <span class="float-heart one" aria-hidden="true">♡</span>
-  <span class="float-heart two" aria-hidden="true">♡</span>
-  <span class="float-heart three" aria-hidden="true">♡</span>
-
   <main class="page">
     <header class="intro">
       <div class="eyebrow"><span class="heart">♡</span> A little countdown for my favourite human</div>
@@ -419,8 +382,7 @@
             </model-viewer>
           </div>
           <div class="model-caption">
-            <div><strong>Your comfy little corner</strong><span>Saving you a seat until you're home ♡</span></div>
-            <div class="model-heart" aria-hidden="true">♡</div>
+            <div><strong>Your comfy little corner</strong><span>Saving you a seat until you're home</span></div>
           </div>
         </article>
 
@@ -443,7 +405,6 @@
           </div>
           <div class="model-caption">
             <div><strong>My favourite hello</strong><span>Practising that big welcome-back hug</span></div>
-            <div class="model-heart" aria-hidden="true">♥</div>
           </div>
         </article>
       </div>
@@ -455,7 +416,7 @@
       <span class="signature">— Someone who misses you a little extra</span>
     </p>
 
-    <footer>Made with a silly amount of love · Just for you ♡</footer>
+    <footer>Made just for you · Until the happy reunion</footer>
   </main>
 
   <script>
@@ -484,7 +445,7 @@
           fields.seconds.textContent = "00";
           arrival.innerHTML = "<strong>She's back! Go get that hug. ♡</strong>";
           document.querySelector(".count-label").textContent = "The best moment is here";
-          document.title = "She's back! ♡";
+          document.title = "She's back!";
           return;
         }
 
@@ -510,7 +471,7 @@
           note.classList.add("done");
         });
         viewer.addEventListener("error", function () {
-          note.textContent = "This little model couldn't load — try refreshing ♡";
+          note.textContent = "This little model couldn't load — try refreshing";
         });
       });
     })();
